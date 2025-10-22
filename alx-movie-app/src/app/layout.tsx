@@ -2,7 +2,13 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+// Configure Inter font with local fallback
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap', // Better performance
+  preload: true,
+  fallback: ['system-ui', 'arial'] // Fallback fonts
+})
 
 export const metadata: Metadata = {
   title: 'Cine Seek',
