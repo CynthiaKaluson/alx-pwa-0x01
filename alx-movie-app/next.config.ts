@@ -2,8 +2,10 @@ import withPWAInit from "@ducanh2912/next-pwa";
 import type { NextConfig } from "next";
 
 const withPWA = withPWAInit({
-  dest: 'public'
-})
+  dest: 'public',
+  register: true,
+  // Keep skipWaiting but cast away typesafety
+} as any);
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -17,6 +19,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  output: 'standalone',
 };
 
 export default withPWA(nextConfig);
